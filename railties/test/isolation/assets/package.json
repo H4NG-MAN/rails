@@ -6,6 +6,12 @@
     "@rails/activestorage": "file:../../../../activestorage",
     "@rails/ujs": "file:../../../../actionview",
     "@rails/webpacker": "https://github.com/rails/webpacker.git",
-    "turbolinks": "^5.2.0"
-  }
+    "turbolinks": "^5.2.0",
+    "snyk": "^1.316.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
