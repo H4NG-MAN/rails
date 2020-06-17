@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.29.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
-gem "rack-cache", "~> 1.2"
-gem "sass-rails"
+gem "rack-cache", "~> 1.9", ">= 1.9.0"
+gem "sass-rails", ">= 6.0.0"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.0", ">= 4.0.7", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -30,7 +30,7 @@ gem "json", ">= 2.3.0"
 
 gem "rubocop", ">= 0.47", require: false
 gem "rubocop-performance", require: false
-gem "rubocop-rails", require: false
+gem "rubocop-rails", ">= 2.3.2", require: false
 
 group :doc do
   gem "sdoc", "~> 1.0"
@@ -50,9 +50,9 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 # Active Job
 group :job do
-  gem "resque", require: false
-  gem "resque-scheduler", require: false
-  gem "sidekiq", require: false
+  gem "resque", ">= 2.0.0", require: false
+  gem "resque-scheduler", ">= 4.4.0", require: false
+  gem "sidekiq", ">= 6.0.1", require: false
   gem "sucker_punch", require: false
   gem "delayed_job", require: false
   gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
@@ -74,7 +74,7 @@ group :cable do
 
   gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
 
-  gem "blade", require: false, platforms: [:ruby]
+  gem "blade", ">= 0.7.1", require: false, platforms: [:ruby]
   gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
   gem "sprockets-export", require: false
 end
