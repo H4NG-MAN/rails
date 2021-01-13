@@ -34,7 +34,7 @@ gem "rubocop-rails", require: false
 
 group :doc do
   gem "sdoc", "~> 1.0"
-  gem "redcarpet", "~> 3.2.3", platforms: :ruby
+  gem "redcarpet", "~> 3.5.1", platforms: :ruby
   gem "w3c_validators", ">= 1.3.4"
   gem "kindlerb", "~> 1.2.0"
 end
