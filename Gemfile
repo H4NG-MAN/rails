@@ -9,7 +9,7 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.29.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
 gem "rack-cache", "~> 1.2"
@@ -74,7 +74,7 @@ group :cable do
 
   gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
 
-  gem "blade", require: false, platforms: [:ruby]
+  gem "blade", ">= 0.7.1", require: false, platforms: [:ruby]
   gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
   gem "sprockets-export", require: false
 end
@@ -82,7 +82,7 @@ end
 # Active Storage
 group :storage do
   gem "aws-sdk-s3", require: false
-  gem "google-cloud-storage", "~> 1.11", require: false
+  gem "google-cloud-storage", "~> 1.21", ">= 1.21.1", require: false
   gem "azure-storage-blob", require: false
 
   gem "image_processing", "~> 1.2"
@@ -90,7 +90,7 @@ end
 
 # Action Mailbox
 gem "aws-sdk-sns", require: false
-gem "webmock"
+gem "webmock", ">= 3.7.6"
 
 group :ujs do
   gem "qunit-selenium"
