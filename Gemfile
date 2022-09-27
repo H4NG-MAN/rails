@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.29.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
-gem "rack-cache", "~> 1.2"
+gem "rack-cache", "~> 1.9", ">= 1.9.0"
 gem "sass-rails"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.0", ">= 4.0.7", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -33,8 +33,8 @@ gem "rubocop-performance", require: false
 gem "rubocop-rails", require: false
 
 group :doc do
-  gem "sdoc", "~> 1.0"
-  gem "redcarpet", "~> 3.2.3", platforms: :ruby
+  gem "sdoc", "~> 1.0", ">= 1.0.0"
+  gem "redcarpet", "~> 3.5.1", platforms: :ruby
   gem "w3c_validators", ">= 1.3.4"
   gem "kindlerb", "~> 1.2.0"
 end
@@ -52,20 +52,20 @@ gem "bootsnap", ">= 1.4.4", require: false
 group :job do
   gem "resque", require: false
   gem "resque-scheduler", require: false
-  gem "sidekiq", require: false
+  gem "sidekiq", ">= 6.4.0", require: false
   gem "sucker_punch", require: false
-  gem "delayed_job", require: false
+  gem "delayed_job", ">= 4.1.9", require: false
   gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
   gem "sneakers", require: false
   gem "que", require: false
   gem "backburner", require: false
-  gem "delayed_job_active_record", require: false
+  gem "delayed_job_active_record", ">= 4.1.5", require: false
   gem "sequel", require: false
 end
 
 # Action Cable
 group :cable do
-  gem "puma", require: false
+  gem "puma", ">= 4.3.12", require: false
 
   gem "hiredis", require: false
   gem "redis", "~> 4.0", require: false
@@ -82,10 +82,10 @@ end
 # Active Storage
 group :storage do
   gem "aws-sdk-s3", require: false
-  gem "google-cloud-storage", "~> 1.11", require: false
+  gem "google-cloud-storage", "~> 1.21", ">= 1.21.1", require: false
   gem "azure-storage-blob", require: false
 
-  gem "image_processing", "~> 1.2"
+  gem "image_processing", "~> 1.12", ">= 1.12.2"
 end
 
 # Action Mailbox
@@ -115,7 +115,7 @@ group :test do
 end
 
 platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
-  gem "nokogiri", ">= 1.8.1"
+  gem "nokogiri", ">= 1.13.6"
 
   # Needed for compiling the ActionDispatch::Journey parser.
   gem "racc", ">=1.4.6", require: false
@@ -131,16 +131,16 @@ end
 
 platforms :jruby do
   if ENV["AR_JDBC"]
-    gem "activerecord-jdbcsqlite3-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+    gem "activerecord-jdbcsqlite3-adapter", ">= 61.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
     group :db do
-      gem "activerecord-jdbcmysql-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
-      gem "activerecord-jdbcpostgresql-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+      gem "activerecord-jdbcmysql-adapter", ">= 61.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+      gem "activerecord-jdbcpostgresql-adapter", ">= 61.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
     end
   else
-    gem "activerecord-jdbcsqlite3-adapter", ">= 1.3.0"
+    gem "activerecord-jdbcsqlite3-adapter", ">= 61.0"
     group :db do
-      gem "activerecord-jdbcmysql-adapter", ">= 1.3.0"
-      gem "activerecord-jdbcpostgresql-adapter", ">= 1.3.0"
+      gem "activerecord-jdbcmysql-adapter", ">= 61.0"
+      gem "activerecord-jdbcpostgresql-adapter", ">= 61.0"
     end
   end
 end
