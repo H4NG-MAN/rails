@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.29.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
 gem "rack-cache", "~> 1.2"
 gem "sass-rails"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.0", ">= 4.0.7", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -115,7 +115,7 @@ group :test do
 end
 
 platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
-  gem "nokogiri", ">= 1.8.1"
+  gem "nokogiri", ">= 1.13.9"
 
   # Needed for compiling the ActionDispatch::Journey parser.
   gem "racc", ">=1.4.6", require: false
