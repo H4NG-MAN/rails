@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.30.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
-gem "rack-cache", "~> 1.2"
+gem "rack-cache", "~> 1.10", ">= 1.10.0"
 gem "sass-rails"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.1", ">= 4.1.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -30,12 +30,12 @@ gem "json", ">= 2.3.0"
 
 gem "rubocop", ">= 0.47", require: false
 gem "rubocop-performance", require: false
-gem "rubocop-rails", require: false
+gem "rubocop-rails", ">= 2.4.0", require: false
 
 group :doc do
-  gem "sdoc", "~> 1.0"
+  gem "sdoc", "~> 1.1", ">= 1.1.0"
   gem "redcarpet", "~> 3.2.3", platforms: :ruby
-  gem "w3c_validators", ">= 1.3.4"
+  gem "w3c_validators", ">= 1.3.5"
   gem "kindlerb", "~> 1.2.0"
 end
 
@@ -50,9 +50,9 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 # Active Job
 group :job do
-  gem "resque", require: false
-  gem "resque-scheduler", require: false
-  gem "sidekiq", require: false
+  gem "resque", ">= 2.1.0", require: false
+  gem "resque-scheduler", ">= 4.5.0", require: false
+  gem "sidekiq", ">= 6.0.2", require: false
   gem "sucker_punch", require: false
   gem "delayed_job", require: false
   gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
@@ -74,7 +74,7 @@ group :cable do
 
   gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
 
-  gem "blade", require: false, platforms: [:ruby]
+  gem "blade", ">= 0.7.2", require: false, platforms: [:ruby]
   gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
   gem "sprockets-export", require: false
 end
@@ -83,7 +83,7 @@ end
 group :storage do
   gem "aws-sdk-s3", require: false
   gem "google-cloud-storage", "~> 1.11", require: false
-  gem "azure-storage-blob", require: false
+  gem "azure-storage-blob", ">= 2.0.3", require: false
 
   gem "image_processing", "~> 1.2"
 end
@@ -94,7 +94,7 @@ gem "webmock"
 
 group :ujs do
   gem "qunit-selenium"
-  gem "webdrivers"
+  gem "webdrivers", ">= 4.2.0"
 end
 
 # Add your own local bundler stuff.
@@ -115,7 +115,7 @@ group :test do
 end
 
 platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
-  gem "nokogiri", ">= 1.8.1"
+  gem "nokogiri", ">= 1.15.6"
 
   # Needed for compiling the ActionDispatch::Journey parser.
   gem "racc", ">=1.4.6", require: false
