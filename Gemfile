@@ -131,16 +131,16 @@ end
 
 platforms :jruby do
   if ENV["AR_JDBC"]
-    gem "activerecord-jdbcsqlite3-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+    gem "activerecord-jdbcsqlite3-adapter", ">= 71.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
     group :db do
-      gem "activerecord-jdbcmysql-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
-      gem "activerecord-jdbcpostgresql-adapter", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+      gem "activerecord-jdbcmysql-adapter", ">= 71.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
+      gem "activerecord-jdbcpostgresql-adapter", ">= 71.0", github: "jruby/activerecord-jdbc-adapter", branch: "master"
     end
   else
-    gem "activerecord-jdbcsqlite3-adapter", ">= 1.3.0"
+    gem "activerecord-jdbcsqlite3-adapter", ">= 71.0"
     group :db do
-      gem "activerecord-jdbcmysql-adapter", ">= 1.3.0"
-      gem "activerecord-jdbcpostgresql-adapter", ">= 1.3.0"
+      gem "activerecord-jdbcmysql-adapter", ">= 71.0"
+      gem "activerecord-jdbcpostgresql-adapter", ">= 71.0"
     end
   end
 end
