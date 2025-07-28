@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 3.26"
+gem "capybara", ">= 3.30.0"
 gem "selenium-webdriver", ">= 3.141.592"
 
 gem "rack-cache", "~> 1.2"
 gem "sass-rails"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.1", ">= 4.1.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -35,7 +35,7 @@ gem "rubocop-rails", require: false
 group :doc do
   gem "sdoc", "~> 1.0"
   gem "redcarpet", "~> 3.2.3", platforms: :ruby
-  gem "w3c_validators", ">= 1.3.4"
+  gem "w3c_validators", ">= 1.3.5"
   gem "kindlerb", "~> 1.2.0"
 end
 
@@ -83,7 +83,7 @@ end
 group :storage do
   gem "aws-sdk-s3", require: false
   gem "google-cloud-storage", "~> 1.11", require: false
-  gem "azure-storage-blob", require: false
+  gem "azure-storage-blob", ">= 2.0.3", require: false
 
   gem "image_processing", "~> 1.2"
 end
@@ -94,7 +94,7 @@ gem "webmock"
 
 group :ujs do
   gem "qunit-selenium"
-  gem "webdrivers"
+  gem "webdrivers", ">= 4.2.0"
 end
 
 # Add your own local bundler stuff.
@@ -115,7 +115,7 @@ group :test do
 end
 
 platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
-  gem "nokogiri", ">= 1.8.1"
+  gem "nokogiri", ">= 1.18.9"
 
   # Needed for compiling the ActionDispatch::Journey parser.
   gem "racc", ">=1.4.6", require: false
